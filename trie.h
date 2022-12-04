@@ -19,9 +19,11 @@ class Trie {
 
     struct TrieNode* find(string word);
 
-    int count_words(struct TrieNode* node);
+    int countWords(struct TrieNode* node);
     
     struct TrieNode* createNode(char letter);
+
+    void clearNode(struct TrieNode* node);
 
     struct TrieNode* root;
 };
@@ -33,6 +35,7 @@ Trie::Trie() {
 
 // Destrutor da árvore
 Trie::~Trie() {
+    clearNode(root);
 }
 
 // Cria nodo
@@ -48,6 +51,16 @@ struct TrieNode* Trie::createNode(char letter_) {
 
     return new_node;
 }
+
+// Destroi nodo
+    void Trie::clearNode(struct TrieNode* node) {
+        for (int i = 0; i < 26; i++) {
+            if (node->children[i] != nullptr)
+                clearNode(node->children[i]);
+        } 
+        delete node;
+    }
+
 
 // Insere uma palavra na árvore
 void Trie::insert(string word, unsigned long pos_, unsigned long length_) {
@@ -77,14 +90,14 @@ struct TrieNode* Trie::find(string word) {
 }
 
 // Conta quantas palavras são formadas por um prefixo
-int Trie::count_words(struct TrieNode* node) {
+int Trie::countWords(struct TrieNode* node) {
     int sum = 0;
     if (node->length != 0)
         sum++;
 
     for (int index = 0; index < 26; index++) {
         if (node->children[index] != nullptr) {
-            sum += count_words(node->children[index]);
+            sum += countWords(node->children[index]);
         }
     }
     return sum;

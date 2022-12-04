@@ -41,7 +41,7 @@ int main() {
         if (node == nullptr) {
             cout << word << " is not prefix"<< endl;
         } else {
-            int count = trie.count_words(node);
+            int count = trie.countWords(node);
             cout << word << " is prefix of " << count << " words" << endl;
             if (node->length != 0) {
                 cout << word << " is at (" << node->pos << "," << node->length << ")" << endl;
