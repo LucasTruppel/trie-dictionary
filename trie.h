@@ -79,7 +79,7 @@ struct TrieNode* Trie::find(string word) {
 // Conta quantas palavras são formadas por um prefixo
 int Trie::count_words(struct TrieNode* node) {
     int sum = 0;
-    if (node->pos != 0)
+    if (node->length != 0)
         sum++;
 
     for (int index = 0; index < 26; index++) {

@@ -28,7 +28,6 @@ int main() {
             dic_word += charc;
         }
         trie.insert(dic_word, pos, line.length());
-        //cout << dic_word << " " << pos << " " << line.length() << endl;
         pos += line.length() + 1;
     }
     
@@ -38,7 +37,16 @@ int main() {
             break;
         }
 
-        //trie.find(word);
+        struct TrieNode* node = trie.find(word);
+        if (node == nullptr) {
+            cout << word << " is not prefix"<< endl;
+        } else {
+            int count = trie.count_words(node);
+            cout << word << " is prefix of " << count << " words" << endl;
+            if (node->length != 0) {
+                cout << word << " is at (" << node->pos << "," << node->length << ")" << endl;
+            }
+        }
     }
 
     return 0;
