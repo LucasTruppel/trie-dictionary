@@ -1,4 +1,5 @@
 #include <iostream>
+#include "trie.h"
 
 int main() {
     
@@ -10,6 +11,8 @@ int main() {
     cin >> filename;  // entrada
 
     cout << filename << endl;  // esta linha deve ser removida
+
+    Trie trie;
     
     while (1) {  // leitura das palavras ate' encontrar "0"
         cin >> word;
