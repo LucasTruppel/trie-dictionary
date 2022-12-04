@@ -1,4 +1,5 @@
 // Copyright [2022] <Lucas Castro Truppel Machado
+
 #include <string>
 using namespace std;
 
@@ -60,7 +61,6 @@ struct TrieNode* Trie::createNode(char letter_) {
         } 
         delete node;
     }
-
 
 // Insere uma palavra na árvore
 void Trie::insert(string word, unsigned long pos_, unsigned long length_) {

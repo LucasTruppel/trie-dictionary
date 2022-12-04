@@ -1,3 +1,5 @@
+// Copyright [2022] <Lucas Castro Truppel Machado
+
 #include <iostream>
 #include <fstream>
 #include "trie.h"
